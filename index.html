@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>李舒晴 · 求职作品集 | AI Agent / 数据分析 / AI 产品运营</title>
+<style>
+  :root{
+    --navy:#1f3a5f; --navy2:#2c5282; --blue:#3b82f6; --blue-soft:#dbeafe;
+    --ink:#1f2937; --gray:#6b7280; --line:#e5e7eb; --bg:#f7f9fc; --white:#fff;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:"Microsoft YaHei","PingFang SC",-apple-system,Segoe UI,sans-serif;
+    color:var(--ink);background:var(--bg);line-height:1.7;font-size:15px}
+  a{color:var(--blue);text-decoration:none}
+  a:hover{text-decoration:underline}
+  .wrap{max-width:960px;margin:0 auto;padding:0 22px}
+
+  /* Hero */
+  header{background:linear-gradient(135deg,var(--navy),var(--navy2));color:#fff;padding:54px 0 46px}
+  header .name{font-size:34px;font-weight:800;letter-spacing:1px}
+  header .tag{margin-top:10px;font-size:17px;color:var(--blue-soft);font-weight:600}
+  header .sub{margin-top:6px;color:#cbd5e1;font-size:14px}
+  header .links{margin-top:18px;display:flex;gap:10px;flex-wrap:wrap}
+  header .links a{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);
+    color:#fff;padding:7px 14px;border-radius:20px;font-size:13px}
+  header .links a:hover{background:rgba(255,255,255,.22);text-decoration:none}
+
+  /* Nav */
+  nav{background:var(--white);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:10}
+  nav .wrap{display:flex;gap:22px;flex-wrap:wrap;padding:12px 22px}
+  nav a{color:var(--gray);font-size:14px;font-weight:600}
+  nav a:hover{color:var(--navy)}
+
+  section{padding:40px 0}
+  h2{font-size:22px;color:var(--navy);margin-bottom:6px;display:flex;align-items:center;gap:10px}
+  h2::before{content:"";width:5px;height:22px;background:var(--blue);border-radius:3px;display:inline-block}
+  .lead{color:var(--gray);margin-bottom:22px;font-size:14px}
+
+  /* 关于 */
+  .about{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:26px 28px}
+  .about p{margin-bottom:10px}
+  .about .hl{color:var(--navy);font-weight:700}
+
+  /* 核心作品卡片 */
+  .feature{border:1px solid var(--line);border-radius:16px;overflow:hidden;background:var(--white);
+    box-shadow:0 6px 22px rgba(31,58,95,.07)}
+  .feature .top{background:linear-gradient(135deg,#eff6ff,#dbeafe);padding:24px 28px}
+  .feature .top h3{font-size:20px;color:var(--navy)}
+  .feature .top .meta{margin-top:6px;color:var(--gray);font-size:13px}
+  .feature .body{padding:24px 28px}
+  .feat-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:8px}
+  .feat-grid .box{background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:14px 16px}
+  .feat-grid .box b{color:var(--navy2);display:block;margin-bottom:4px;font-size:14px}
+  .feat-grid .box span{font-size:13px;color:var(--gray)}
+  .arch{margin-top:18px;background:#0f172a;color:#e2e8f0;border-radius:10px;padding:16px 18px;
+    font-family:"Consolas",monospace;font-size:12.5px;line-height:1.6;overflow-x:auto}
+  .arch .c{color:#7dd3fc}
+  .arch .g{color:#86efac}
+  .arch .y{color:#fde68a}
+
+  /* 实习产出网格 */
+  .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:8px}
+  .card{background:var(--white);border:1px solid var(--line);border-radius:12px;padding:18px 20px}
+  .card h4{color:var(--navy2);font-size:16px;margin-bottom:6px}
+  .card p{font-size:13.5px;color:var(--gray)}
+  .card .pill{display:inline-block;margin-top:10px;font-size:11px;color:var(--blue);
+    background:var(--blue-soft);padding:3px 10px;border-radius:12px}
+
+  /* 简历 */
+  .resume-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:8px}
+  .resume-grid .r{background:var(--white);border:1px solid var(--line);border-radius:12px;
+    padding:16px;text-align:center}
+  .resume-grid .r b{display:block;color:var(--navy);font-size:15px;margin-bottom:6px}
+  .resume-grid .r span{font-size:12.5px;color:var(--gray);display:block;min-height:48px}
+  .resume-grid .r .note{margin-top:10px;font-size:11px;color:var(--gray)}
+
+  /* 技能 */
+  .skills{display:flex;flex-wrap:wrap;gap:10px;margin-top:8px}
+  .skills span{background:var(--white);border:1px solid var(--line);border-radius:20px;
+    padding:7px 15px;font-size:13px;color:var(--ink)}
+  .skills span b{color:var(--navy2)}
+
+  footer{background:var(--navy);color:#cbd5e1;padding:28px 0;text-align:center;font-size:13px}
+  footer a{color:var(--blue-soft)}
+  .demo{margin-top:18px;background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:14px 16px}
+  .demo b{color:var(--navy2);font-size:13px;display:block;margin-bottom:8px}
+  .demo img{width:100%;border-radius:8px;border:1px solid #1e293b;display:block}
+  .demo span{display:block;margin-top:8px;font-size:12px;color:var(--gray)}
+  .resume-show{margin-top:18px;text-align:center}
+  .resume-show img{width:300px;max-width:82%;border-radius:8px;box-shadow:0 4px 16px rgba(31,58,95,.12);border:1px solid var(--line)}
+  .resume-show span{display:block;margin-top:8px;font-size:12px;color:var(--gray)}
+  @media(max-width:720px){
+    .feat-grid,.grid,.resume-grid{grid-template-columns:1fr}
+    header .name{font-size:27px}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <div class="name">李舒晴</div>
+    <div class="tag">求职作品集 · AI Agent / 数据分析 / AI 产品运营</div>
+    <div class="sub">浙江越秀外国语学院 · 大数据管理与应用（2027 届） · 个人作品均开源可查</div>
+    <div class="links">
+      <a href="https://github.com/qiqiii-ouo/jobmatch-agent" target="_blank">▶ GitHub 作品库</a>
+      <a href="#project">核心作品</a>
+      <a href="#intern">实习产出</a>
+      <a href="#demo">实战样例</a>
+      <a href="#resume">简历</a>
+      <a href="#skills">技能</a>
+    </div>
+  </div>
+</header>
+
+<nav>
+  <div class="wrap">
+    <a href="#about">关于我</a>
+    <a href="#project">核心作品</a>
+    <a href="#intern">实习产出</a>
+    <a href="#demo">实战样例</a>
+    <a href="#resume">简历</a>
+    <a href="#skills">技能栈</a>
+  </div>
+</nav>
+
+<section id="about">
+  <div class="wrap">
+    <h2>关于我</h2>
+    <p class="lead">一句话定位：会用 AI 工具、也能从 0 搭 Agent 的应届生，想把"做出来的东西"当作品。</p>
+    <div class="about">
+      <p>我是<b class="hl">李舒晴</b>，大数据管理与应用专业 2027 届应届生。在杭州雷鸣信息发展有限公司的实习里，
+      我实操了 <b class="hl">AI 短剧生产、ffmpeg 批量处理、内容自动化流程、账号数据分析</b> 等 AI 应用工作。</p>
+      <p>为了系统证明自己的 AI Agent 能力，我<b class="hl">从 0 设计并用代码实现了一个求职助手 Agent</b>，
+      并把专家人设、技能定义、自写脚本全部开源到 GitHub——面试可现场演示、链接可查。</p>
+      <p>求职方向覆盖三类岗位：<b class="hl">AI Agent 应用/技术、数据分析、AI 产品运营/产品经理</b>，
+      下面按"作品 + 产出 + 简历"三层组织，方便快速了解。</p>
+    </div>
+  </div>
+</section>
+
+<section id="project">
+  <div class="wrap">
+    <h2>核心开源作品</h2>
+    <p class="lead">这是简历里写的"个人 Agent 项目"，真实可运行、可演示、源码可查。</p>
+    <div class="feature">
+      <div class="top">
+        <h3>求职小助手 Agent（JobMatch Agent）</h3>
+        <div class="meta">Python · 纯标准库规则引擎 + 可选 LLM · 已开源 ·
+          <a href="https://github.com/qiqiii-ouo/jobmatch-agent" target="_blank" style="color:var(--navy2)">github.com/qiqiii-ouo/jobmatch-agent</a>
+        </div>
+      </div>
+      <div class="body">
+        <p style="font-size:14px;color:var(--gray)">输入一份岗位 JD + 你的简历，输出：<b style="color:var(--navy2)">匹配度评分、简历优化建议、面试题预测</b>。
+        底层覆盖 Agent 三大件，正好对应我的学习路线 L1→L5。</p>
+        <div class="feat-grid">
+          <div class="box"><b>系统提示词 Persona（L1）</b><span>persona.md 定义"资深求职顾问"人设、约束与输出格式</span></div>
+          <div class="box"><b>工具调用 Tool Use（L2）</b><span>技能 SKILL.md 可在 WorkBuddy 直接加载调用</span></div>
+          <div class="box"><b>记忆 Memory</b><span>保存简历画像 profile.json，跨轮复用避免重复输入</span></div>
+          <div class="box"><b>自写代码 L5</b><span>jobmatch.py 纯标准库实现，规则基线无需任何 API Key</span></div>
+        </div>
+        <div class="arch">
+<span class="c">JD 文本</span> ─┐<br>
+         ├─► <span class="g">jobmatch.py</span> ─► [提取关键词/技能] ─► [匹配计算] ─► 报告<br>
+<span class="c">简历文本</span> ─┘                                          ├─ <span class="y">匹配度评分</span><br>
+                                                      ├─ <span class="y">简历优化建议</span><br>
+                                                      └─ <span class="y">面试题准备</span><br>
+              （可选）LLM 增强：设置 OPENAI_API_KEY 后调用
+        </div>
+        <div class="demo"><b>▶ 运行演示（终端打字动画）</b>
+          <img src="demo.gif" alt="jobmatch 运行演示">
+          <span>真实运行 jobmatch.py：输入 JD + 简历 → 输出匹配度 / 优化建议 / 面试题预测</span>
+        </div>
+        <p style="margin-top:14px;font-size:13px;color:var(--gray)">
+        <b style="color:var(--navy2)">面试怎么讲：</b>从"为什么做"（求职场景痛点）→"Agent 三件套怎么落地"
+        （提示词/工具/记忆）→"规则基线为何免 API Key"（工程取舍）→"下一步 L3 MCP / L4 自动化 / RAG"。
+        能讲清设计，比只会调 API 更有料。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="intern">
+  <div class="wrap">
+    <h2>实习产出（杭州雷鸣信息发展有限公司）</h2>
+    <p class="lead">2026-07 ~ 2026-09 · 商务 / AI 内容运营实习生。以下为真实工作产出（非开源代码，属岗位成果）。</p>
+    <div class="grid">
+      <div class="card">
+        <h4>AI 短剧生产全流程</h4>
+        <p>独立完成"脚本 → Seedance 生成 → 剪辑 → 多平台发布"全链路，累计产出短剧内容。</p>
+        <span class="pill">Seedance · 剪辑 · 多平台分发</span>
+      </div>
+      <div class="card">
+        <h4>ffmpeg 视频批量处理</h4>
+        <p>编写 ffmpeg 批处理脚本实现批量转码/剪辑，将重复操作脚本化，提升处理效率。</p>
+        <span class="pill">ffmpeg · 批处理脚本</span>
+      </div>
+      <div class="card">
+        <h4>内容生产自动化流程</h4>
+        <p>梳理内容生产与上传中的重复环节，搭建自动化流程，把机械操作交给流程执行。</p>
+        <span class="pill">流程自动化 · 提效</span>
+      </div>
+      <div class="card">
+        <h4>账号数据分析与可视化</h4>
+        <p>用 Excel 透视表统计播放/涨粉/互动数据并输出周报，据此优化发布策略。</p>
+        <span class="pill">数据分析 · 透视表 · 可视化</span>
+      </div>
+    </div>
+    <p style="margin-top:12px;font-size:12.5px;color:var(--gray)">
+    注：以上产出中的具体条数、耗时、提效百分比请以实习真实数据为准，面试前填入简历对应位置。</p>
+  </div>
+</section>
+
+<section id="demo">
+  <div class="wrap">
+    <h2>实战样例 · JobMatch Agent 输出演示</h2>
+    <p class="lead">下面是一份真实运行样例：输入通用「应届 AI 产品岗」JD + 我的简历，Agent 自动产出匹配度评分、待补强项与改写建议、面试题预测。用自己简历做 dogfooding，既演示能力也验证可用性。</p>
+    <div class="feature">
+      <div class="top">
+        <h3>匹配度评分（Agent 自动输出）</h3>
+        <div class="meta">输入：通用「应届 AI 产品运营 / AI 产品经理」JD + 简历</div>
+      </div>
+      <div class="body">
+        <div class="feat-grid">
+          <div class="box"><b>AI 产品运营（应届）</b><span><b style="font-size:19px;color:var(--navy)">82 / 100</b><br>高度契合，简历近乎量身打造</span></div>
+          <div class="box"><b>AI 产品经理（应届）</b><span><b style="font-size:19px;color:var(--navy)">74 / 100</b><br>基本契合，需补 PRD/方法论/取数</span></div>
+        </div>
+        <p style="margin-top:14px;font-size:14px;color:var(--gray)"><b style="color:var(--navy2)">Agent 总结的优势：</b>真实 AIGC 实习 + 个人 Agent 开源项目 + 数据驱动 + 用户/增长体感，是应届里很少见的组合。</p>
+        <p style="margin-top:8px;font-size:14px;color:var(--gray)"><b style="color:var(--navy2)">Agent 自动识别的「待补强项 + 改写建议」（演示工具核心能力）：</b></p>
+        <div class="feat-grid">
+          <div class="box"><b>① 量化成果偏软</b><span>多处"显著提升"无数字 → 工具提示替换为真实数据</span></div>
+          <div class="box"><b>② 求职意向过宽</b><span>"运营/产品"定位 → 工具建议主攻一个方向收口</span></div>
+          <div class="box"><b>③ 硬技能空白</b><span>缺 SQL / PRD / 原型工具 → 工具提示补强</span></div>
+          <div class="box"><b>④ Agent 项目偏描述</b><span>缺工具/效果数据 → 工具提示补充量化</span></div>
+        </div>
+        <p style="margin-top:14px;font-size:14px;color:var(--gray)"><b style="color:var(--navy2)">Agent 预测的高频面试题：</b></p>
+        <div class="demo" style="background:var(--bg)">
+          <span style="display:block;font-size:13.5px;color:var(--ink);margin-bottom:8px"><b>Q1</b> 你的 Agent 解决了什么真实问题？怎么拆解需求、设计提示词和工具链？最大难点？</span>
+          <span style="display:block;font-size:13.5px;color:var(--ink);margin-bottom:8px"><b>Q2</b> 雷鸣的自动化流程：原流程怎样、你的方案、多少量化收益？产品化成 SaaS 怎么做？</span>
+          <span style="display:block;font-size:13.5px;color:var(--ink)"><b>Q3</b> AI 产品经理 vs 产品运营区别？给"AI 短视频选题工具"设计 MVP 并验证？</span>
+        </div>
+        <p style="margin-top:14px;font-size:13px;color:var(--gray)">完整样例输出（含硬/软要求逐项对照、改写示例、优化优先级清单）见
+          <a href="jobmatch-report-ai-product.md" target="_blank">简历匹配分析全文（Markdown）</a>。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="resume">
+  <div class="wrap">
+    <h2>简历（三份定向版）</h2>
+    <p class="lead">同一段经历，按岗位叙事重写，投递时选对应版本。</p>
+    <div class="resume-grid">
+      <div class="r">
+        <b>AI Agent 方向</b>
+        <span>突出 AI 短剧生产、ffmpeg 脚本、Agent 平台流程、个人 Agent 开源项目</span>
+        <div class="note">含 GitHub 作品链接</div>
+      </div>
+      <div class="r">
+        <b>数据分析方向</b>
+        <span>突出账号数据分析、透视表可视化、脚本化提效、数据驱动运营</span>
+        <div class="note">数据能力为主线</div>
+      </div>
+      <div class="r">
+        <b>AI 产品方向</b>
+        <span>突出产品视角、用户洞察、流程优化、数据驱动决策</span>
+        <div class="note">含 GitHub 作品链接</div>
+      </div>
+    </div>
+    <div class="resume-show">
+      <img src="resume-preview.png" alt="简历预览">
+      <span>简历预览（AI Agent 方向示意）。完整 .docx 三份见本地「桌面\简历\美化版\」</span>
+    </div>
+    <p style="margin-top:12px;font-size:12.5px;color:var(--gray)">
+    完整 .docx 简历文件见本地「桌面\简历\美化版\」三份；如需在线预览版可向我索取。</p>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="wrap">
+    <h2>技能栈</h2>
+    <p class="lead">按岗位相关性组织。</p>
+    <div class="skills">
+      <span><b>AI 工具：</b>Seedance · 剪映 · ffmpeg · WorkBuddy</span>
+      <span><b>自动化：</b>内容生产流程 · 批处理脚本</span>
+      <span><b>数据：</b>Excel 透视表 · 数据可视化 · 周报</span>
+      <span><b>编程：</b>Python（标准库）· 规则引擎</span>
+      <span><b>Agent：</b>Persona 设计 · 工具调用 · 记忆管理</span>
+      <span><b>协作：</b>Git · GitHub · 文档写作</span>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    李舒晴 · 求职作品集 &nbsp;|&nbsp;
+    <a href="https://github.com/qiqiii-ouo/jobmatch-agent" target="_blank">GitHub: qiqiii-ouo/jobmatch-agent</a>
+    <br>本页为个人求职作品集，所有作品均本人完成并开源可查。
+  </div>
+</footer>
+
+</body>
+</html>

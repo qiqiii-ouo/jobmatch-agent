@@ -35,6 +35,7 @@ job-agent/
 ├── README.md            # 本说明
 ├── persona.md           # 专家人设（L1）
 ├── jobmatch.py          # 核心脚本：规则基线 + 可选 LLM（L5）
+├── jobmatch-report-ai-product.md  # 实战样例输出：JobMatch Agent 跑作者简历生成的匹配分析报告（演示端到端能力）
 └── skills/
     └── job-match/
         └── SKILL.md     # WorkBuddy 技能定义（L2，可直接加载）
